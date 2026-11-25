@@ -48,10 +48,7 @@ const Hero = () => {
           >
             <div className="slide-inner">
               <h1 className="brand-mark">Miranti Collections</h1>
-              <p>
-                Single-origin beans, roasted to order and shipped within 48
-                hours.
-              </p>
+              <p>Fashion, Accesories, Lifestyles.</p>
               <a className="btn btn-store" href="#catalog">
                 Browse the catalog
               </a>

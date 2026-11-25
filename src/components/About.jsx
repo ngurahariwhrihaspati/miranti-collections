@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col'
 import { openWhatsApp } from '../utils/whatsapp'
 
 // Placeholder coordinates: replace with the store's real location.
-const STORE = { lat: -6.1754, lon: 106.8272 }
+const STORE = { lat: -8.665073, lon: 115.207187 }
 const d = 0.004
 const bbox = [STORE.lon - d, STORE.lat - d, STORE.lon + d, STORE.lat + d].join(
   '%2C'
@@ -33,12 +33,7 @@ const About = () => {
         </div>
         <Row className="g-4 g-lg-5">
           <Col xs={12} md={6}>
-            <p>
-              Miranti Collections started as a roasting table in a garage and a
-              promise to buy straight from the farms we name on every bag. We
-              still roast in small batches, and we answer every message
-              ourselves.
-            </p>
+            <p>Miranti Collections.</p>
 
             <h3 className="h5">Opening hours</h3>
             <table className="hours">
@@ -55,7 +50,7 @@ const About = () => {
               </tbody>
             </table>
 
-            <p className="address">Jl. Example No. 12, Your City</p>
+            <p className="address">Jl. Imam Bonjol No. 68, Denpasar</p>
 
             <button
               type="button"
