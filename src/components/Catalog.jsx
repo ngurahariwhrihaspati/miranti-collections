@@ -1,35 +1,36 @@
-import { useMemo, useState } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import { products, categories } from "../data/products";
-import { formatPrice } from "../utils/format";
+import { useMemo, useState } from 'react'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import { products, categories } from '../data/products'
+import { formatPrice } from '../utils/format'
 
 const Catalog = () => {
-  const [category, setCategory] = useState("All");
-  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState('All')
+  const [query, setQuery] = useState('')
 
   const visible = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = query.trim().toLowerCase()
     return products.filter(
       (p) =>
-        (category === "All" || p.category === category) &&
-        (!q || `${p.name} ${p.category} ${p.overview}`.toLowerCase().includes(q)),
-    );
-  }, [category, query]);
+        (category === 'All' || p.category === category) &&
+        (!q ||
+          `${p.name} ${p.category} ${p.overview}`.toLowerCase().includes(q))
+    )
+  }, [category, query])
 
   const reset = () => {
-    setCategory("All");
-    setQuery("");
-  };
+    setCategory('All')
+    setQuery('')
+  }
 
   return (
     <section id="catalog" className="block">
       <Container>
         <div className="block-head">
           <h2>Catalog</h2>
-          <p>Beans roasted this week and the gear we brew with every day.</p>
+          <p>Explore Variant of Unique Goods</p>
         </div>
 
         <div className="toolbar">
@@ -41,12 +42,16 @@ const Catalog = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <div className="pill-row" role="group" aria-label="Filter by category">
+          <div
+            className="pill-row"
+            role="group"
+            aria-label="Filter by category"
+          >
             {categories.map((c) => (
               <button
                 key={c}
                 type="button"
-                className={`pill ${category === c ? "active" : ""}`}
+                className={`pill ${category === c ? 'active' : ''}`}
                 aria-pressed={category === c}
                 onClick={() => setCategory(c)}
               >
@@ -64,13 +69,20 @@ const Catalog = () => {
           {visible.map((p) => (
             <Col xs={12} sm={6} lg={4} key={p.id}>
               <Card className="product-card">
-                <Card.Img variant="top" src={p.image} alt={p.name} loading="lazy" />
+                <Card.Img
+                  variant="top"
+                  src={p.image}
+                  alt={p.name}
+                  loading="lazy"
+                />
                 <Card.Body>
                   <span className="category">{p.category}</span>
                   <Card.Title as="h3">{p.name}</Card.Title>
                   <span className="price">{formatPrice(p.price)}</span>
                   <Card.Text className="overview">{p.overview}</Card.Text>
-                  <a className="btn btn-store" href={`#/product/${p.id}`}>Read more</a>
+                  <a className="btn btn-store" href={`#/product/${p.id}`}>
+                    Read more
+                  </a>
                 </Card.Body>
               </Card>
             </Col>
@@ -87,7 +99,7 @@ const Catalog = () => {
         )}
       </Container>
     </section>
-  );
-};
+  )
+}
 
-export default Catalog;
+export default Catalog
